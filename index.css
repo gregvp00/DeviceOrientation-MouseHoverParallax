@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter";
+  background-color: rgb(170, 238, 215);
+}
+input[type="checkbox"] {
+  display: none;
+}
+h2,
+p {
+  font-size: 20px;
+}
+.fade {
+  background-color: #fff7bd;
+  -webkit-animation: fadeOut 0.6s ease-in-out 1.5s both;
+  animation: fadeOut 0.6s ease-in-out 1.5s both;
+}
+.background {
+  background: red;
+}
+.card {
+  position: relative;
+  display: block;
+  margin: 5em auto;
+  transform-style: preserve-3d;
+  width: 30em;
+  height: 41em;
+  cursor: pointer;
+  perspective: 1000px;
+  filter: drop-shadow(0.4em 0.4em 0.1em #df8851);
+  transition: 0.5s;
+}
+.card .inside {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.card .shiny,
+.card .text {
+  background-color: #2e2e4b;
+  border-radius: 2em;
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.card .text {
+  transform: rotateY(180deg);
+  padding: 25px;
+  background: url(./img/reverse.png) no-repeat center/contain;
+  text-shadow: 2px 2px white;
+  border: none;
+  color: #36ac81;
+}
+.card .shiny {
+  overflow: hidden;
+  transform: scale(1);
+  transition: 0.25s;
+}
+.card .shiny:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -55%;
+  width: 10%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-30deg);
+  transition: 0.75s;
+
+  overflow: hidden;
+}
+.card .shiny:hover {
+  transition: 0.5s;
+  transform: scale(1.06);
+}
+.card .shiny:hover:after {
+  left: 150%;
+  transition: 1.5s;
+}
+#check:checked + .card .inside {
+  transform: rotateY(180deg);
+}
+
+#parallax-container {
+  /*background-color: white;*/
+  border: 1px solid lightblue;
+  position: relative;
+  /*overflow: hidden;*/
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  backface-visibility: hidden;
+}
+
+.parallax-wrapper {
+  position: absolute;
+  /*background: white;*/
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform-origin: 50% 50%;
+  transform: translate3d(0px, 0px, 0px);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.parallax-layer {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  position: absolute;
+  display: block;
+  /*transition: transform .1s linear;*/
+}
+.shiny .cardbg {
+  background: url("./img/background.png") no-repeat center/contain;
+  border-radius: 2em;
+  width: 100%;
+  height: 100%;
+  bottom: 0%;
+  left: 0%;
+  transition: 0.5s;
+}
+.cardtopplus,
+.cardborderplus,
+.cardcat,
+.cardborder,
+.cardtop,
+.cardch,
+.cardbot {
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  right: 0;
+  transition: 0.5s;
+  border-radius: 2em;
+}
+.shiny .cardbot {
+  background: url("./img/bottom.png") no-repeat center/contain;
+}
+
+.shiny .cardch {
+  background: url("./img/character.png") no-repeat center/contain;
+}
+
+.shiny .cardtop {
+  background: url("./img/top.png") no-repeat center/contain;
+}
+
+.shiny .cardborder {
+  background: url("./img/card.png") no-repeat center/contain;
+}
+
+.shiny .cardcat {
+  background: url("./img/cat.png") no-repeat center/contain;
+}
+.cardborderplus {
+  background: url("./img/cardtop.png") no-repeat center/contain;
+}
+.shiny .cardtopplus {
+  background: url("./img/topplusplusplus.png") no-repeat center/contain;
+}
+
+.parallax-layer.is-out {
+  transform: translate3d(0, 0, 0) !important;
+  transition: transform 0.4s ease-out;
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+    z-index: 100;
+  }
+  100% {
+    opacity: 0;
+    z-index: -10;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    z-index: 100;
+  }
+  100% {
+    opacity: 0;
+    z-index: -10;
+  }
+}
