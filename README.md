@@ -27,4 +27,4 @@ A vanilla webpage demonstrating parallax effects using **Device Orientation** an
 - Click the card to toggle between the front and back of the card.
 
 ## Credits
-Illustration by @bloodmoon_bh
+Illustration made by @bloodmoon_bh
